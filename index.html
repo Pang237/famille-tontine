@@ -39,6 +39,32 @@ tr.rcv td:first-child{border-left:6px solid var(--g)}
 #cs .cs-r,#ca .cs-r{flex-direction:column;align-items:stretch;gap:5px;padding:8px 8px 8px 10px;border-radius:12px}
 #cs .cs-r .n,#ca .cs-r .n{font-size:.84rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 #cs .pill,#ca .pill{text-align:center;font-size:1.02rem;padding:4px 8px;border-radius:9px}#cs .pill small,#ca .pill small{font-size:.58rem}.sub{color:var(--tx);font-weight:800;margin:14px 0 6px;font-size:.95rem}
+.an{margin-top:10px;background:var(--lt);border:2px solid var(--acc);border-left:8px solid var(--g);border-radius:10px;padding:10px 12px;box-shadow:0 2px 8px rgba(0,0,0,.25)}
+.an-h{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:1.02rem}.an-ic{font-size:1.4rem}
+.an-new{margin-left:auto;background:var(--g);color:#0E1F00;font-size:.62rem;font-weight:800;letter-spacing:.05em;padding:2px 8px;border-radius:10px;animation:pls 1.6s ease-in-out infinite}
+@keyframes pls{50%{opacity:.55}}
+.an p{margin:6px 0 8px;font-size:.9rem;line-height:1.4}
+.an-f{display:flex;align-items:center;justify-content:space-between;gap:8px}.an-f small{color:var(--mut)}
+.an-b{background:var(--g);color:#0E1F00;border:0;border-radius:18px;padding:6px 14px;font-weight:800;font-size:.82rem;cursor:pointer}
+details.mo{margin:8px 0;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+details.mo>summary{list-style:none;cursor:pointer;padding:10px 12px;font-weight:800;font-size:.95rem;display:flex;align-items:center;gap:8px;background:var(--lt)}
+details.mo>summary::-webkit-details-marker{display:none}
+details.mo>summary::after{content:"▾";margin-left:auto;padding-left:6px}
+details.mo[open]>summary::after{content:"▴"}
+details.mo>summary .tt{margin-left:auto;font-size:.74rem;font-weight:800;background:var(--g);color:#0E1F00;border-radius:10px;padding:2px 8px;white-space:nowrap}
+details.mo .wrap{border-radius:0}details.mo td.r,details.mo th.r{white-space:nowrap}
+.pos{color:var(--g);font-weight:800}.neg{color:var(--red);font-weight:800}
+.mbtn{position:fixed;z-index:50;top:calc(env(safe-area-inset-top,0px) + 10px);left:12px;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.28);background:rgba(44,44,48,.82);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;gap:5px;padding:0 13px;cursor:pointer;box-shadow:0 2px 10px rgba(0,0,0,.45)}
+.mbtn i{display:block;height:2.5px;border-radius:2px;background:#fff;width:22px}.mbtn i:last-child{width:11px}
+.ov{position:fixed;inset:0;z-index:60;background:rgba(0,0,0,.6);opacity:0;pointer-events:none;transition:opacity .25s}
+.dr{position:fixed;z-index:70;top:0;bottom:0;left:0;width:min(88vw,380px);background:var(--bg);color:var(--tx);border-right:2px solid var(--acc);transform:translateX(-102%);transition:transform .28s ease;overflow-y:auto;padding:calc(env(safe-area-inset-top,0px) + 12px) 12px calc(env(safe-area-inset-bottom,0px) + 20px);box-shadow:6px 0 24px rgba(0,0,0,.5)}
+body.mo-open .ov{opacity:1;pointer-events:auto}body.mo-open .dr{transform:none}body.mo-open{overflow:hidden}
+.dr-h{display:flex;align-items:center;justify-content:space-between;font-size:1.2rem;margin-bottom:8px}
+.dr-h button{background:var(--lt);color:var(--tx);border:1px solid var(--line);border-radius:50%;width:38px;height:38px;font-size:1rem;cursor:pointer}
+.dr-n a{display:block;padding:12px 10px;border-radius:10px;font-weight:700;font-size:.95rem;cursor:pointer;border-bottom:1px solid var(--line)}
+.dr-n a:active{background:var(--lt)}
+.dr-t{margin:16px 0 4px;background:var(--g);color:#0E1F00;border-left:7px solid var(--acc);border-radius:6px;padding:9px 10px;font-weight:800;font-size:1rem}
+.dr td,.dr th{font-size:.72rem;padding:5px 4px}.dr .wrap{overflow-x:auto}
 details.dd{margin:22px 0 8px}
 details.dd>summary{list-style:none;cursor:pointer;background:var(--g);color:#0E1F00;font-size:1.2rem;line-height:1.3;font-weight:800;padding:9px 12px;border-left:7px solid var(--acc);border-radius:6px;display:flex;align-items:center;gap:8px}
 details.dd>summary::-webkit-details-marker{display:none}
@@ -50,31 +76,40 @@ details.dd[open]>summary{margin-bottom:8px}
 .note{color:var(--mut);font-size:.78rem;margin:4px 0}
 </style></head><body><main>
 <header><h1>Famille Bodju Lydie, enfants et petits-fils</h1><p>Tontine &amp; Caisse de solidarité | Août 2026 – Mai 2027</p></header>
+<div id="annonces"></div>
 <div class="stats"><div><b>20</b>participants</div><div><b>10 000 F</b>par membre / tour</div><div><b>200 000 F</b>cagnotte du tour</div><div><b>2</b>bénéficiaires / mois</div></div>
 <div class="warn"><b>ATTENTION – Délai des dépôts (10.200 FCFA)</b><br>Le délai des dépôts est fixé le <b>2<sup>e</sup> samedi du mois à 22h00</b>. Passé ce délai, une <b>sanction de 500 FCFA</b> sera prélevée sur votre argent lors de votre paiement.</div>
-<h2>Calendrier des bénéficiaires</h2>
+<h2 id="sec-cal">Calendrier des bénéficiaires</h2>
 <div class="wrap"><table class="calt"><thead><tr><th>Mois</th><th>Bénéficiaire 1</th><th>Bénéficiaire 2</th><th class="c">Statut</th></tr></thead><tbody id="cal"></tbody></table></div>
 <p class="note">Vert ✓ REÇU = a déjà reçu son dû | Orange = EN ATTENTE (Octobre 2026)</p>
 <div class="dl" id="dl"></div>
-<h2>3<sup>e</sup> tour de cotisation : Qui a cotisé ce mois ?</h2>
+<h2 id="sec-tour">3<sup>e</sup> tour de cotisation : Qui a cotisé ce mois ?</h2>
 <div class="names" id="names"></div>
 <p class="note" id="sum"></p>
 <p class="note">✅ a cotisé ce mois | 🚨 pas encore cotisé (5 jours ou moins avant le délai) | ❌ pas cotisé, délai dépassé<br>Le tour de cotisation est réinitialisé chaque 3<sup>e</sup> lundi du mois.</p>
-<details class="dd"><summary><span>Caisse solidarité – Octobre 2026</span><span class="tt" id="cstt"></span></summary>
+<details class="dd" id="dd-cs"><summary><span>Caisse solidarité – Octobre 2026</span><span class="tt" id="cstt"></span></summary>
 <div class="cs-h"><div class="a">MEMBRE</div><div class="b">MONTANT (FCFA)</div></div><div id="cs"></div><div class="cs-r cs-t"><span class="n">TOTAL CAISSE SOLIDARITÉ</span><span class="pill">&nbsp;<b id="tot"></b></span></div></details>
-<details class="dd"><summary><span>Caisse d'Assistance Maman Mado</span><span class="tt" id="catt"></span></summary>
+<details class="dd" id="dd-ca"><summary><span>Caisse d'Assistance Maman Mado</span><span class="tt" id="catt"></span></summary>
 <p class="note">Caisse permanente : aide à un membre pour un soin médical.</p>
 <div class="cs-h"><div class="a">MEMBRE</div><div class="b">VERSÉ (FCFA)</div></div><div id="ca"></div>
 <div class="cs-r cs-t"><span class="n">TOTAL VERSÉ</span><span class="pill"><b id="catot"></b></span></div>
 <div class="sub">Aides accordées</div>
 <div class="wrap"><table><thead><tr><th>N°</th><th>Date</th><th>Bénéficiaire</th><th class="r">Montant</th></tr></thead><tbody id="caa"></tbody></table></div>
 <div class="cs-r cs-t"><span class="n">SOLDE DISPONIBLE</span><span class="pill"><b id="casolde"></b></span></div></details>
-<h2>Sanctions de la tontine</h2>
+
+<h2 id="sec-sanc">Sanctions de la tontine</h2>
 <p class="note">Règle : sanction de 500 FCFA pour tout dépôt hors délai (après le 2<sup>e</sup> samedi du mois à 22h00), prélevée sur le paiement du membre.</p>
 <div class="wrap"><table><thead><tr><th>N°</th><th>Membre</th><th>Motif et date</th><th class="r">Montant</th></tr></thead><tbody id="sa"></tbody><tfoot><tr><td colspan="3">Total des sanctions</td><td class="r" id="satot"></td></tr></tfoot></table></div>
+<button class="mbtn" id="mbtn" aria-label="Ouvrir le menu"><i></i><i></i><i></i></button>
+<div class="ov" id="ov"></div>
+<aside class="dr" id="dr" aria-hidden="true"><div class="dr-h"><b>Menu</b><button id="mx" aria-label="Fermer le menu">✕</button></div>
+<nav class="dr-n"><a data-t="sec-cal">📅 Calendrier des bénéficiaires</a><a data-t="sec-tour">✅ Qui a cotisé ce mois ?</a><a data-t="dd-cs">💰 Caisse solidarité</a><a data-t="dd-ca">🤝 Caisse d'Assistance Maman Mado</a><a data-t="sec-sanc">⚖️ Sanctions</a></nav>
+<div class="dr-t">🧾 Historique des transactions mensuel</div>
+<p class="note">Entrées : cotisations du tour, caisse solidarité et caisse d'assistance. Sorties : aides accordées. Les sanctions sont prélevées sur les paiements et ne sont pas comptées en plus.</p>
+<div id="hist"></div></aside>
 </main>
 <script>
-var CFG={"nom": "Famille Bodju Lydie, enfants et petits-fils", "sous_titre": "Tontine & Caisse de solidarité | Août 2026 – Mai 2027", "devise": "FCFA", "cotisation": 10000, "numero_tour": 3, "beneficiaires_par_mois": 2, "delai": {"jour": 6, "rang": 2, "heure": 22, "libelle": "2e samedi du mois à 22h00"}, "reinitialisation": {"jour": 1, "rang": 3, "libelle": "3e lundi du mois"}, "sanction": 500, "message_attention": "ATTENTION – Délai des dépôts (10.200 FCFA)", "fuseau": "Africa/Douala", "image": "mains.jpg", "calendrier": [["Août 2026", "Maman Justine", "Pa Emma"], ["Septembre 2026", "Tonton Mangaba", "Tonton Félix"], ["Octobre 2026", "Tonton Gérôme", "Thierry"], ["Novembre 2026", "Ma Berthe", "Viviane"], ["Décembre 2026", "Yannick", "Judith"], ["Janvier 2027", "Stéphanie", "Laurentine"], ["Février 2027", "Tonton Emestin", "Ma Mado"], ["Mars 2027", "Prudence", "Géraldine"], ["Avril 2027", "Hermann", "Papa Joseph"], ["Mai 2027", "Emestin 2", "Emestin 3"]], "recus": 2, "participants": ["Laurentine", "Maman Justine", "Tonton Mangaba", "Géraldine", "Tonton Emestin", "Stéphanie", "Emestin 2", "Emestin 3", "Tonton Gérôme", "Maman Mado", "Hermann", "Yannick", "Tonton Félix", "Viviane", "Thierry", "Judith", "Prudence", "Papa Joseph", "Pa Emma", "Ma Berthe"], "alias": {"Maman Mado": "Ma Mado", "Emestin": "Tonton Emestin"}, "caisse": {"label": "Octobre 2026", "montants": [["Laurentine", 0], ["Maman Justine", 0], ["Tonton Mangaba", 0], ["Géraldine", 0], ["Emestin", 0], ["Stéphanie", 0], ["Papa Joseph", 0], ["Tonton Gérôme", 0], ["Maman Mado", 0], ["Hermann", 0], ["Yannick", 0], ["Tonton Félix", 0], ["Viviane", 0], ["Thierry", 0], ["Judith", 0], ["Prudence", 0], ["Yves", 0], ["Ma Berthe", 0], ["Pa Emma", 0]]}, "tour_en_cours": {"mois": "2026-10", "payes": ["Hermann", "Papa Joseph", "Laurentine", "Judith", "Ma Berthe", "Pa Emma"]}, "sanctions": [], "couleurs": {"vert": "#B6FF3C", "clair": "#86CC2B", "menthe": "#1D2611", "fond": "#14180D", "texte": "#FFFFFF", "recu": "#2A3A12", "rouge": "#FF5A5A", "rougefond": "#2A1012", "orange": "#FFB703", "pagefond": "#000000", "ligne": "#2A2A2C", "muet": "#8E8E93", "nuit": "#1C1C1E", "cadre": "#2C2C2E", "carte": "#121214", "zebre": "#17171A", "surv": "#0E1F00", "surclair": "#0E1F00", "soustitre": "#C9C9CE", "warnbg": "#2A1608", "warntx": "#FFC899", "warnbd": "#FF8A2B", "voile": "#000000", "voile_alpha": 0.5}, "theme_sombre": true, "caisse_assistance": {"nom": "Caisse d'Assistance Maman Mado", "objet": "Caisse permanente : aide à un membre pour un soin médical.", "montants": [["Laurentine", 5000], ["Maman Justine", 0], ["Tonton Mangaba", 0], ["Géraldine", 0], ["Tonton Emestin", 0], ["Stéphanie", 0], ["Emestin 2", 0], ["Emestin 3", 0], ["Tonton Gérôme", 0], ["Maman Mado", 0], ["Hermann", 0], ["Yannick", 0], ["Tonton Félix", 0], ["Viviane", 0], ["Thierry", 0], ["Judith", 0], ["Prudence", 0], ["Papa Joseph", 0], ["Pa Emma", 5000], ["Ma Berthe", 5000]], "aides": []}};
+var CFG={"nom": "Famille Bodju Lydie, enfants et petits-fils", "sous_titre": "Tontine & Caisse de solidarité | Août 2026 – Mai 2027", "devise": "FCFA", "cotisation": 10000, "numero_tour": 3, "beneficiaires_par_mois": 2, "delai": {"jour": 6, "rang": 2, "heure": 22, "libelle": "2e samedi du mois à 22h00"}, "reinitialisation": {"jour": 1, "rang": 3, "libelle": "3e lundi du mois"}, "sanction": 500, "message_attention": "ATTENTION – Délai des dépôts (10.200 FCFA)", "fuseau": "Africa/Douala", "image": "mains.jpg", "calendrier": [["Août 2026", "Maman Justine", "Pa Emma"], ["Septembre 2026", "Tonton Mangaba", "Tonton Félix"], ["Octobre 2026", "Tonton Gérôme", "Thierry"], ["Novembre 2026", "Ma Berthe", "Viviane"], ["Décembre 2026", "Yannick", "Judith"], ["Janvier 2027", "Stéphanie", "Laurentine"], ["Février 2027", "Tonton Emestin", "Ma Mado"], ["Mars 2027", "Prudence", "Géraldine"], ["Avril 2027", "Hermann", "Papa Joseph"], ["Mai 2027", "Emestin 2", "Emestin 3"]], "recus": 2, "participants": ["Laurentine", "Maman Justine", "Tonton Mangaba", "Géraldine", "Tonton Emestin", "Stéphanie", "Emestin 2", "Emestin 3", "Tonton Gérôme", "Maman Mado", "Hermann", "Yannick", "Tonton Félix", "Viviane", "Thierry", "Judith", "Prudence", "Papa Joseph", "Pa Emma", "Ma Berthe"], "alias": {"Maman Mado": "Ma Mado", "Emestin": "Tonton Emestin"}, "caisse": {"label": "Octobre 2026", "montants": [["Laurentine", 0], ["Maman Justine", 0], ["Tonton Mangaba", 0], ["Géraldine", 0], ["Emestin", 0], ["Stéphanie", 0], ["Papa Joseph", 0], ["Tonton Gérôme", 0], ["Maman Mado", 0], ["Hermann", 0], ["Yannick", 0], ["Tonton Félix", 0], ["Viviane", 0], ["Thierry", 0], ["Judith", 0], ["Prudence", 0], ["Yves", 0], ["Ma Berthe", 0], ["Pa Emma", 0]]}, "tour_en_cours": {"mois": "2026-10", "payes": ["Hermann", "Papa Joseph", "Laurentine", "Judith", "Ma Berthe", "Pa Emma"]}, "sanctions": [], "couleurs": {"vert": "#B6FF3C", "clair": "#86CC2B", "menthe": "#1D2611", "fond": "#14180D", "texte": "#FFFFFF", "recu": "#2A3A12", "rouge": "#FF5A5A", "rougefond": "#2A1012", "orange": "#FFB703", "pagefond": "#000000", "ligne": "#2A2A2C", "muet": "#8E8E93", "nuit": "#1C1C1E", "cadre": "#2C2C2E", "carte": "#121214", "zebre": "#17171A", "surv": "#0E1F00", "surclair": "#0E1F00", "soustitre": "#C9C9CE", "warnbg": "#2A1608", "warntx": "#FFC899", "warnbd": "#FF8A2B", "voile": "#000000", "voile_alpha": 0.5}, "theme_sombre": true, "caisse_assistance": {"nom": "Caisse d'Assistance Maman Mado", "objet": "Caisse permanente : aide à un membre pour un soin médical.", "montants": [["Laurentine", 5000], ["Maman Justine", 0], ["Tonton Mangaba", 0], ["Géraldine", 0], ["Tonton Emestin", 0], ["Stéphanie", 0], ["Emestin 2", 0], ["Emestin 3", 0], ["Tonton Gérôme", 0], ["Maman Mado", 0], ["Hermann", 0], ["Yannick", 0], ["Tonton Félix", 0], ["Viviane", 0], ["Thierry", 0], ["Judith", 0], ["Prudence", 0], ["Papa Joseph", 0], ["Pa Emma", 5000], ["Ma Berthe", 5000]], "aides": []}, "annonces": [{"icone": "🔄", "titre": "Permutation dans le calendrier", "texte": "Thierry et Ma Berthe ont permuté leurs positions. Octobre 2026 : Tonton Gérôme et Thierry. Novembre 2026 : Ma Berthe et Viviane.", "date": "Annoncé le 7 octobre 2026", "cible": "sec-cal", "jusqu_au": "2026-10-31", "pdf": "Thierry et Ma Berthe permutent : octobre = Tonton Gérôme et Thierry ; novembre = Ma Berthe et Viviane."}, {"icone": "🤝", "titre": "Nouvelle caisse : Caisse d'Assistance Maman Mado", "texte": "Une caisse d'assistance permanente est ouverte pour aider un membre en cas de soin médical. Les versements et le solde sont visibles dans le menu « Caisse d'Assistance Maman Mado ».", "date": "Annoncé le 7 octobre 2026", "cible": "dd-ca", "jusqu_au": "2026-10-31", "pdf": "Caisse permanente ouverte pour aider un membre en cas de soin médical."}], "mois_courant": "Octobre 2026", "historique": [{"mois": "Septembre 2026", "lignes": [["Caisse solidarité", "Laurentine", 1000], ["Caisse solidarité", "Maman Justine", 4000], ["Caisse solidarité", "Géraldine", 3000], ["Caisse solidarité", "Emestin", 9000], ["Caisse solidarité", "Stéphanie", 10000], ["Caisse solidarité", "Papa Joseph", 1000], ["Caisse solidarité", "Hermann", 1000], ["Caisse solidarité", "Thierry", 1000], ["Caisse solidarité", "Judith", 4000], ["Caisse solidarité", "Prudence", 10000]]}]};
 function f(v){return String(v).replace(/\B(?=(\d{3})+(?!\d))/g," ")+" F"}
 var J=["dimanche","lundi","mardi","mercredi","jeudi","vendredi","samedi"],M=["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
 function nth(y,m,wd,n,h){var d;if(n==-1){d=new Date(y,m+1,0);while(d.getDay()!=wd)d.setDate(d.getDate()-1)}else{d=new Date(y,m,1);while(d.getDay()!=wd)d.setDate(d.getDate()+1);d.setDate(d.getDate()+7*(n-1))}d.setHours(h,0,0,0);return d}
@@ -106,6 +141,27 @@ if(CFG.caisse_assistance){var A=CFG.caisse_assistance,AM=A.montants.slice().sort
 var SANC=CFG.sanctions;
 document.getElementById("sa").innerHTML=SANC.length?SANC.map(function(r,i){return "<tr><td>"+(i+1)+"</td><td>"+r[0]+"</td><td>"+r[1]+"</td><td class='r'>"+f(r[2])+"</td></tr>"}).join(""):'<tr><td colspan="4" class="c">Aucune sanction enregistrée pour le moment</td></tr>';
 document.getElementById("satot").textContent=f(SANC.reduce(function(a,r){return a+r[2]},0));
+(function(){var A=(CFG.annonces||[]).filter(function(a){return !a.jusqu_au||new Date()<=new Date(a.jusqu_au+"T23:59:59")});
+document.getElementById("annonces").innerHTML=A.map(function(a){return '<div class="an"><div class="an-h"><span class="an-ic">'+(a.icone||"📢")+'</span><b>'+a.titre+'</b><span class="an-new">NOUVEAU</span></div><p>'+a.texte+'</p><div class="an-f"><small>'+a.date+'</small>'+(a.cible?'<button class="an-b" data-c="'+a.cible+'">Voir →</button>':'')+'</div></div>'}).join("");
+document.querySelectorAll(".an-b").forEach(function(b){b.onclick=function(){var e=document.getElementById(b.dataset.c);if(!e)return;if(e.tagName=="DETAILS")e.open=true;e.scrollIntoView({behavior:"smooth",block:"start"})}})})();
+(function(){
+ var H=(CFG.historique||[]).map(function(m){return {mois:m.mois,l:m.lignes}});
+ var cm=CFG.mois_courant,L=[];
+ if(cm){
+  var cot=CFG.tour_en_cours.payes||[];
+  cot.forEach(function(n){L.push(["Cotisation du tour",n,CFG.cotisation])});
+  CFG.caisse.montants.forEach(function(r){if(r[1])L.push(["Caisse solidarité",r[0],r[1]])});
+  if(CFG.caisse_assistance){CFG.caisse_assistance.montants.forEach(function(r){if(r[1])L.push(["Caisse d'Assistance",r[0],r[1]])});
+   (CFG.caisse_assistance.aides||[]).forEach(function(a){L.push(["Aide accordée",a[1],-a[2]])})}
+  (CFG.sanctions||[]).forEach(function(a){L.push(["Sanction",a[0],a[2]])});
+  H.unshift({mois:cm,l:L,cur:1})}
+ document.getElementById("hist").innerHTML=H.map(function(m){
+  var ent=m.l.filter(function(r){return r[2]>0&&r[0]!="Sanction"}).reduce(function(a,r){return a+r[2]},0),sor=m.l.filter(function(r){return r[2]<0}).reduce(function(a,r){return a-r[2]},0);
+  var rows=m.l.length?m.l.map(function(r,i){var v=r[2];return "<tr><td>"+(i+1)+"</td><td>"+r[0]+"</td><td>"+r[1]+"</td><td class='r "+(v<0?"neg":"pos")+"'>"+(v<0?"− ":"+ ")+f(Math.abs(v))+"</td></tr>"}).join(""):'<tr><td colspan="4" class="c">Aucune transaction enregistrée</td></tr>';
+  return '<details class="mo"'+(m.cur?' open':'')+'><summary><span>'+m.mois+'</span><span class="tt">Entrées : '+f(ent)+'</span></summary><div class="wrap"><table><thead><tr><th>N°</th><th>Type</th><th>Membre</th><th class="r">Montant</th></tr></thead><tbody>'+rows+'</tbody><tfoot><tr><td colspan="3">Entrées'+(sor?' | Sorties : '+f(sor):'')+'</td><td class="r">'+f(ent-sor)+'</td></tr></tfoot></table></div></details>'}).join("")})();
+(function(){var b=document.body;function op(){b.classList.add("mo-open");document.getElementById("dr").setAttribute("aria-hidden","false")}function cl(){b.classList.remove("mo-open");document.getElementById("dr").setAttribute("aria-hidden","true")}
+document.getElementById("mbtn").onclick=op;document.getElementById("mx").onclick=cl;document.getElementById("ov").onclick=cl;
+document.querySelectorAll(".dr-n a").forEach(function(a){a.onclick=function(){cl();var e=document.getElementById(a.dataset.t);if(!e)return;if(e.tagName=="DETAILS")e.open=true;setTimeout(function(){e.scrollIntoView({behavior:"smooth",block:"start"})},280)}})})();
 function tick(){
  var now=new Date(new Date().toLocaleString("en-US",{timeZone:CFG.fuseau}));
  renderNames(now);

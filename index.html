@@ -65,6 +65,22 @@ body.mo-open .ov{opacity:1;pointer-events:auto}body.mo-open .dr{transform:none}b
 .dr-n a:active{background:var(--lt)}
 .dr-t{margin:16px 0 4px;background:var(--g);color:#0E1F00;border-left:7px solid var(--acc);border-radius:6px;padding:9px 10px;font-weight:800;font-size:1rem}
 .dr td,.dr th{font-size:.72rem;padding:5px 4px}.dr .wrap{overflow-x:auto}
+.mbtn.bell{left:auto;right:12px;align-items:center;padding:0;position:fixed}
+.bdg{position:absolute;top:-3px;right:-3px;min-width:19px;height:19px;border-radius:10px;background:#ff3b30;color:#fff;font-size:.7rem;font-weight:800;display:none;align-items:center;justify-content:center;padding:0 5px;border:2px solid #111}
+.bell.has .bdg{display:flex}.bell.has svg{animation:ring 3.2s ease-in-out infinite;transform-origin:50% 8%}
+@keyframes ring{0%,40%,100%{transform:rotate(0)}8%{transform:rotate(16deg)}16%{transform:rotate(-14deg)}24%{transform:rotate(10deg)}32%{transform:rotate(-8deg)}}
+.np{display:none;position:fixed;z-index:55;top:calc(env(safe-area-inset-top,0px) + 68px);right:12px;width:min(92vw,370px);max-height:72vh;overflow-y:auto;background:var(--card);color:var(--tx);border:1px solid var(--line);border-radius:18px;box-shadow:0 10px 30px rgba(0,0,0,.55)}
+.np.open{display:block}
+.np-h{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:14px 16px;border-bottom:1px solid var(--line);font-size:1.05rem}
+.np-h button,.np-f button{background:none;border:0;color:var(--mut);font-size:.8rem;cursor:pointer;font-weight:700}
+.np-f{border-top:1px solid var(--line);text-align:center;padding:12px}.np-f button{color:var(--tx);font-size:.95rem}
+.np-e{padding:34px 16px;text-align:center;color:var(--mut)}
+.ni{display:flex;gap:10px;padding:12px 14px;border-bottom:1px solid var(--line)}.ni:last-child{border-bottom:0}
+.ni.un{background:var(--lt);box-shadow:inset 4px 0 0 var(--g)}.ni.old{opacity:.6}
+.ni .ic{font-size:1.4rem}.ni .nbd{flex:1;min-width:0}.nt{display:flex;align-items:center;gap:6px;flex-wrap:wrap;font-size:.92rem}
+.nt em{font-style:normal;background:var(--g);color:#0E1F00;font-size:.58rem;font-weight:800;padding:2px 7px;border-radius:9px;letter-spacing:.05em}
+.ni p{margin:4px 0 6px;font-size:.84rem;line-height:1.4}.nf{display:flex;align-items:center;justify-content:space-between;gap:8px}.nf small{color:var(--mut);font-size:.72rem}
+.npv{background:var(--g);color:#0E1F00;border:0;border-radius:16px;padding:5px 12px;font-weight:800;font-size:.78rem;cursor:pointer}
 details.dd{margin:22px 0 8px}
 details.dd>summary{list-style:none;cursor:pointer;background:var(--g);color:#0E1F00;font-size:1.2rem;line-height:1.3;font-weight:800;padding:9px 12px;border-left:7px solid var(--acc);border-radius:6px;display:flex;align-items:center;gap:8px}
 details.dd>summary::-webkit-details-marker{display:none}
@@ -76,7 +92,6 @@ details.dd[open]>summary{margin-bottom:8px}
 .note{color:var(--mut);font-size:.78rem;margin:4px 0}
 </style></head><body><main>
 <header><h1>Famille Bodju Lydie, enfants et petits-fils</h1><p>Tontine &amp; Caisse de solidarité | Août 2026 – Mai 2027</p></header>
-<div id="annonces"></div>
 <div class="stats"><div><b>20</b>participants</div><div><b>10 000 F</b>par membre / tour</div><div><b>200 000 F</b>cagnotte du tour</div><div><b>2</b>bénéficiaires / mois</div></div>
 <div class="warn"><b>ATTENTION – Délai des dépôts (10.200 FCFA)</b><br>Le délai des dépôts est fixé le <b>2<sup>e</sup> samedi du mois à 22h00</b>. Passé ce délai, une <b>sanction de 500 FCFA</b> sera prélevée sur votre argent lors de votre paiement.</div>
 <h2 id="sec-cal">Calendrier des bénéficiaires</h2>
@@ -100,6 +115,8 @@ details.dd[open]>summary{margin-bottom:8px}
 <h2 id="sec-sanc">Sanctions de la tontine</h2>
 <p class="note">Règle : sanction de 500 FCFA pour tout dépôt hors délai (après le 2<sup>e</sup> samedi du mois à 22h00), prélevée sur le paiement du membre.</p>
 <div class="wrap"><table><thead><tr><th>N°</th><th>Membre</th><th>Motif et date</th><th class="r">Montant</th></tr></thead><tbody id="sa"></tbody><tfoot><tr><td colspan="3">Total des sanctions</td><td class="r" id="satot"></td></tr></tfoot></table></div>
+<button class="mbtn bell" id="bell" aria-label="Notifications"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg><b class="bdg" id="bdg"></b></button>
+<div class="np" id="np"><div class="np-h"><b>Notifications</b><button id="npall">Tout marquer comme lu</button></div><div id="nplist"></div><div class="np-f"><button id="npmore">Voir tout</button></div></div>
 <button class="mbtn" id="mbtn" aria-label="Ouvrir le menu"><i></i><i></i><i></i></button>
 <div class="ov" id="ov"></div>
 <aside class="dr" id="dr" aria-hidden="true"><div class="dr-h"><b>Menu</b><button id="mx" aria-label="Fermer le menu">✕</button></div>
@@ -141,9 +158,26 @@ if(CFG.caisse_assistance){var A=CFG.caisse_assistance,AM=A.montants.slice().sort
 var SANC=CFG.sanctions;
 document.getElementById("sa").innerHTML=SANC.length?SANC.map(function(r,i){return "<tr><td>"+(i+1)+"</td><td>"+r[0]+"</td><td>"+r[1]+"</td><td class='r'>"+f(r[2])+"</td></tr>"}).join(""):'<tr><td colspan="4" class="c">Aucune sanction enregistrée pour le moment</td></tr>';
 document.getElementById("satot").textContent=f(SANC.reduce(function(a,r){return a+r[2]},0));
-(function(){var A=(CFG.annonces||[]).filter(function(a){return !a.jusqu_au||new Date()<=new Date(a.jusqu_au+"T23:59:59")});
-document.getElementById("annonces").innerHTML=A.map(function(a){return '<div class="an"><div class="an-h"><span class="an-ic">'+(a.icone||"📢")+'</span><b>'+a.titre+'</b><span class="an-new">NOUVEAU</span></div><p>'+a.texte+'</p><div class="an-f"><small>'+a.date+'</small>'+(a.cible?'<button class="an-b" data-c="'+a.cible+'">Voir →</button>':'')+'</div></div>'}).join("");
-document.querySelectorAll(".an-b").forEach(function(b){b.onclick=function(){var e=document.getElementById(b.dataset.c);if(!e)return;if(e.tagName=="DETAILS")e.open=true;e.scrollIntoView({behavior:"smooth",block:"start"})}})})();
+(function(){
+ var KEY="notif_lues_"+CFG.nom,all=CFG.annonces||[],showAll=false,mem=[];
+ try{mem=JSON.parse(localStorage.getItem(KEY)||"[]")}catch(e){}
+ function sv(){try{localStorage.setItem(KEY,JSON.stringify(mem))}catch(e){}}
+ function id(a){return a.titre+"|"+a.date}
+ function act(a){return !a.jusqu_au||new Date()<=new Date(a.jusqu_au+"T23:59:59")}
+ var bell=document.getElementById("bell"),bdg=document.getElementById("bdg"),np=document.getElementById("np"),lst=document.getElementById("nplist"),more=document.getElementById("npmore");
+ function go(a){if(mem.indexOf(id(a))<0){mem.push(id(a));sv()}np.classList.remove("open");render();if(!a.cible)return;var e=document.getElementById(a.cible);if(!e)return;if(e.tagName=="DETAILS")e.open=true;setTimeout(function(){e.scrollIntoView({behavior:"smooth",block:"start"})},120)}
+ function render(){
+  var vis=all.filter(function(a){return showAll||act(a)}),un=all.filter(act).filter(function(a){return mem.indexOf(id(a))<0}).length;
+  bell.classList.toggle("has",un>0);bdg.textContent=un>9?"9+":un;
+  lst.innerHTML=vis.length?vis.map(function(a){var u=act(a)&&mem.indexOf(id(a))<0;return '<div class="ni'+(u?' un':'')+(act(a)?'':' old')+'"><span class="ic">'+(a.icone||"📢")+'</span><div class="nbd"><div class="nt"><b>'+a.titre+'</b>'+(u?'<em>NOUVEAU</em>':'')+'</div><p>'+a.texte+'</p><div class="nf"><small>'+a.date+(act(a)?'':' · ancienne')+'</small>'+(a.cible?'<button class="npv" data-i="'+all.indexOf(a)+'">Voir →</button>':'')+'</div></div></div>'}).join(""):'<div class="np-e">Aucune notification</div>';
+  more.textContent=showAll?"Voir moins":"Voir tout";
+  lst.querySelectorAll(".npv").forEach(function(b){b.onclick=function(){go(all[+b.dataset.i])}})}
+ bell.onclick=function(e){e.stopPropagation();np.classList.toggle("open")};
+ document.getElementById("npall").onclick=function(){all.forEach(function(a){if(mem.indexOf(id(a))<0)mem.push(id(a))});sv();render()};
+ more.onclick=function(){showAll=!showAll;render()};
+ document.addEventListener("click",function(e){if(!np.contains(e.target)&&e.target!==bell)np.classList.remove("open")});
+ document.addEventListener("keydown",function(e){if(e.key=="Escape")np.classList.remove("open")});
+ render()})();
 (function(){
  var H=(CFG.historique||[]).map(function(m){return {mois:m.mois,l:m.lignes}});
  var cm=CFG.mois_courant,L=[];

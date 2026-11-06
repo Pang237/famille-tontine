@@ -1,2 +1,2 @@
 # famille-tontine
-Tontine et caisse de solidarité de la famille
+Je suis le Témoin de la famille. Cotisez en confiance
